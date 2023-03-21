@@ -1,0 +1,6 @@
+transaction_id,customer_id,transaction_amount,transaction_date,transaction_type
+1,1001,500.00,2022-02-21,Recharge
+2,1002,200.00,2022-02-21,Recharge
+3,1001,50.00,2022-02-22,Data
+4,1003,1000.00,2022-02-22,Recharge
+5,1004,500.00,2022-02-23,Recharge
