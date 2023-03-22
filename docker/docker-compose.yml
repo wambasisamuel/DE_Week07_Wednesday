@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:4.4.3
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-frauduser}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-fraudpass}
+      MONGO_INITDB_DATABASE: ${MONGO_ROOT_DB:-frauddb}
+      FRAUD_PASSWORD: ${FRAUD_PASSWORD:-fraudpass}
+    volumes:
+      - mongodata:/data/db
+      - mongolog:/var/log/mongodb
+      - ./mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+    networks:
+      - services
+    ports:
+      - 27017:27017
+volumes:
+  mongodata:
+    driver: local
+  mongolog:
+    driver: local
+networks:
+  services:
+    name: ${MONGO_NETWORK:-mongo_network}
