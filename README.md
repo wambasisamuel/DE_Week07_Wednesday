@@ -1,1 +1,2 @@
-# DE_Week07_Wednesday
+# MongoDB Set Up
+I set up a MongoDB docker container on a Digital Ocean droplet.
