@@ -57,7 +57,7 @@ def transform_data(df):
 # Loading function
 def load_data(transformed_data, host, port, db_name, collection_name):
     # Connect to MongoDB
-    client = pymongo.MongoClient(host, port, ssl=True, ssl_cert_reqs='CERT_NONE')
+    client = pymongo.MongoClient(host, port, ssl=True)
     db = client[db_name]
     collection = db[collection_name]
 
@@ -87,6 +87,6 @@ if __name__ == '__main__':
     transformed_data = transform_data(data)
     host = '104.131.120.201'
     port = 27017
-    db_name = 'fraud_db'
+    db_name = 'frauddb'
     collection_name = 'billing'
     load_data(transformed_data, host, port, db_name, collection_name)
